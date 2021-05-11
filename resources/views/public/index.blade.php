@@ -1,7 +1,6 @@
 @extends('layouts.public-template')
 @section('main-content')
 
-<!-- Hero Section -->
 <section id="home">
     <div class="container">
       <div class="row align-items-center" style="height:70vh;">
@@ -11,25 +10,6 @@
           for our clients and their employees.</p>
           <a class="hvr-float" href="#"><button type="button" class="btn btn-light home-btn-a">Find a Job</button></a>
           <!-- <a class="hvr-float" href="#"><button type="button" class="btn btn-light home-btn-b">Post a Job</button></a> -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Intro -->
-
-  <section id="intro">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <h2>Who we are</h2>
-          <p>At Vgs Recruitment, we are collaborative and client focused to diminish business risk in key hires
-          through over 15 years of combined experience in executive headhunting,
-          training and outsourcing services.</p>
-          <a class="hvr-icon-forward" href="url('about-us')">Learn more <img class="ml-2 hvr-icon" src="img/icons/chevron-right.svg"></a>
-        </div>
-        <div class="col-lg-6">
-          <img class="img-fluid intro-img" src="img/intro.png">
         </div>
       </div>
     </div>
@@ -64,8 +44,28 @@
     </div>
   </section>
 
+  <!-- Intro -->
+
+  <section id="intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>Who we are</h2>
+          <p>At Vgs Recruitment, we are collaborative and client focused to diminish business risk in key hires
+          through over 15 years of combined experience in executive headhunting,
+          training and outsourcing services.</p>
+          <a class="hvr-icon-forward" href="about-us.html">Learn more <img class="ml-2 hvr-icon" src="img/icons/chevron-right.svg"></a>
+        </div>
+        <div class="col-lg-6">
+          <img class="img-fluid intro-img" src="img/intro.png">
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Services -->
+
   <section id="services">
     <div class="container">
       <div class="row">
@@ -137,7 +137,7 @@
         <div class="col-lg-4 col-12">
           <div class="customer-wrap">
             <div class="c-img">
-              <img class="img-fluid" src="{{ url('img/job.jpg') }}">
+              <img class="img-fluid" src="img/job.jpg">
             </div>
             <div class="customer-wrap-btm">
               <h3>Job Seekers</h3>
@@ -149,19 +149,19 @@
         <div class="col-lg-4 col-12">
           <div class="customer-wrap">
             <div class="c-img">
-              <img class="img-fluid" src="{{ url('img/employers.jpg') }}">
+              <img class="img-fluid" src="img/employers.jpg">
             </div>
             <div class="customer-wrap-btm">
               <h3>Employers</h3>
               <p>We cater to the specific needs of employers in a timely manner.</p>
-              <a class="hvr-icon-forward" href="{{ url('employers') }}">Learn more <img class="ml-2 hvr-icon" src="img/icons/chevron-right.svg"></a>
+              <a class="hvr-icon-forward" href="employers.html">Learn more <img class="ml-2 hvr-icon" src="img/icons/chevron-right.svg"></a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-12">
           <div class="customer-wrap">
             <div class="c-img">
-              <img class="img-fluid" src="{{ url('img/recruiter.jpg') }}">
+              <img class="img-fluid" src="img/recruiter.jpg">
             </div>
             <div class="customer-wrap-btm">
               <h3>Recruiters</h3>
@@ -174,6 +174,21 @@
     </div>
   </section>
 
+
+   <!-- Contact us -->
+
+ <!--  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col" align="center">
+          <h2>Got a Question?</h2>
+          <p>We would love to meet u and talk more about your needs hoping <br />
+          to see u soon don’t forget to register.</p>
+          <a class="hvr-shrink" href="#"><button class="btn btn-primary">Contact Us</button></a>
+        </div>
+      </div>
+    </div>
+  </section> -->
 
   <!-- Companies -->
 
@@ -189,24 +204,25 @@
               <img src="img/client/6.svg">
             </div>
             <div class="client-box">
-              <img src="{{ url('img/client/1.jpg') }}">
+              <img src="img/client/1.jpg">
             </div>
             <div class="client-box">
-              <img src="{{ url('img/client/2.png') }}">
+              <img src="img/client/2.png">
             </div>
             <div class="client-box">
-              <img src="{{ url('img/client/3.jpg') }}">
+              <img src="img/client/3.jpg">
             </div>
             <div class="client-box">
-              <img src="{{ url('img/client/4.jpg') }}">
+              <img src="img/client/4.jpg">
             </div>
             <div class="client-box">
-              <img src="{{ url('img/client/5.png') }}">
+              <img src="img/client/5.png">
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
 
 @endsection
