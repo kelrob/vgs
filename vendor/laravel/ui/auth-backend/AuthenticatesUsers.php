@@ -112,8 +112,8 @@ trait AuthenticatesUsers
         }
 
         return $request->wantsJson()
-                    ? new JsonResponse([], 204)
-                    : redirect()->intended($this->redirectPath());
+        ? new JsonResponse([], 204)
+        : redirect()->intended($this->redirectPath());
     }
 
     /**
@@ -161,6 +161,13 @@ trait AuthenticatesUsers
      */
     public function logout(Request $request)
     {
+
+        if (Auth::guard('admin')->check()) // this means that the admin was logged in.
+        {
+            Auth::guard('admin')->logout();
+            return redirect()->to('/admin');
+        }
+
         $this->guard()->logout();
 
         $request->session()->invalidate();
@@ -172,8 +179,8 @@ trait AuthenticatesUsers
         }
 
         return $request->wantsJson()
-            ? new JsonResponse([], 204)
-            : redirect('/');
+        ? new JsonResponse([], 204)
+        : redirect('/');
     }
 
     /**

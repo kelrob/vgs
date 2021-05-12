@@ -32,6 +32,12 @@ class UserController extends Controller
         $currentYear = date('Y');
         $minYear = $currentYear - 17;
 
+        $experience = WorkExperience::whereUserId(Auth::user()->id)->first();
+
+        if ($experience->count() > 0) {
+            return redirect()->back();
+        }
+
         return view('dashboard.build-profile', compact('minYear'));
     }
 
@@ -91,7 +97,7 @@ class UserController extends Controller
             $workExperience->description = $request->description[$counter];
             $workExperience->start_date = $request->start_date_month[$counter] . ' ' . $request->start_date_year[$counter];
             $workExperience->end_date = $request->end_date_month[$counter] . ' ' . $request->end_date_year[$counter];
-            $workExperience->currently_working = isset($request->curently_working) ? $request->curently_working : null;
+            $workExperience->currently_working = $request->current_working ? $request->current_working : null;
             $workExperience->save();
             $counter++;
         }
@@ -191,10 +197,14 @@ class UserController extends Controller
 
             if (isset($request->end_date_month[$counter]) == true) {
                 $endDate = $request->end_date_month[$counter] . ' ' . $request->end_date_year[$counter];
+            } else {
+                $endDate = null;
             }
 
             if (isset($request->end_date[$counter]) == true) {
                 $endDate = $request->end_date[$counter];
+            } else {
+                $endDate = null;
             }
 
             $workExperience = new WorkExperience;
@@ -206,7 +216,7 @@ class UserController extends Controller
             $workExperience->description = $request->description[$counter];
             $workExperience->start_date = $startDate;
             $workExperience->end_date = $endDate;
-            $workExperience->currently_working = isset($request->curently_working) ? $request->curently_working : null;
+            $workExperience->currently_working = $request->current_working[$counter] ? $request->current_working[$counter] : null;
             $workExperience->save();
             $counter++;
         }

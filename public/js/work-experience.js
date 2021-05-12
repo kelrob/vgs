@@ -54,7 +54,7 @@ const add = () => {
         <div class="col-lg-6 mb-3">
             <div class="form-check col-lg-12">
                 <input class="form-check-input radios-btn" name="current_working[]"
-                    type="checkbox" value="" id="defaultCheck1">
+                    type="checkbox" value="checked" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
                     I am currently working in this role
                 </label>

@@ -120,7 +120,8 @@
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label for="staticEmail" class="">State</label>
-                                    @include('includes.states')
+                                    <input type="text" name="state" class="form-control" placeholder="Enter State" />
+                                    {{-- @include('includes.states') --}}
                                 </div>
                             </div>
 
@@ -182,8 +183,9 @@
                             <div class="row">
                                 <div class="form-group col-lg-6">
                                     <div class="file-btn btn btn-light upload-btn">
-                                        Upload CV
-                                        <input class="biz-logo-upload" type="file" name="file" />
+                                        <span id="default-text">Upload CV</span>
+                                        <input class="biz-logo-upload" id="file-upload" onchange="showName()" type="file"
+                                            name="file" />
                                     </div>
                                 </div>
                             </div>
@@ -244,7 +246,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-check col-lg-12">
                                             <input class="form-check-input radios-btn" name="current_working[]"
-                                                type="checkbox" value="" id="defaultCheck1">
+                                                type="checkbox" value="checked" id="defaultCheck1">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 I am currently working in this role
                                             </label>
@@ -339,4 +341,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src={{ url('js/work-experience.js') }}></script>
     <script src={{ url('js/education.js') }}></script>
+
+    <script src="{{ url('js/jquery.min.js') }}"></script>
+    <script>
+        function showName() {
+            $('#default-text').text($('#file-upload')[0].files[0].name);
+        }
+
+    </script>
 @endsection

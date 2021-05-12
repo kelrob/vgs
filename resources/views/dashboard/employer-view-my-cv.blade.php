@@ -46,6 +46,9 @@
                                 <p class="company-name">{{ $experience->company }}</p>
                                 <p class="work-description">{{ $experience->description }}
                                 </p>
+                                @if ($experience->currently_working != null)
+                                    <p><small>Currently working here</small> </p>
+                                @endif
                             </div>
                         @endforeach
 

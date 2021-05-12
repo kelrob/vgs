@@ -59,7 +59,7 @@
                                                 class="form-control" id="firstname" placeholder="Month">
                                         </div>
                                         <div class="form-group col-lg-6">
-                                            <label for="staticEmail" class="no-label">End Date</label>
+                                            <label for="staticEmail" class="">End Date</label>
                                             <input type="text" name="end_date[]" value="{{ $experience->end_date }}"
                                                 class="form-control" id="firstname" placeholder="Year">
                                         </div>
@@ -68,7 +68,8 @@
                                         <div class="col-lg-6 mb-3">
                                             <div class="form-check col-lg-12">
                                                 <input class="form-check-input radios-btn" name="current_working[]"
-                                                    type="checkbox" value="" id="defaultCheck1">
+                                                    type="checkbox" value="checked" id="defaultCheck1"
+                                                    {{ $experience->currently_working }}>
                                                 <label class="form-check-label" for="defaultCheck1">
                                                     I am currently working in this role
                                                 </label>
