@@ -33,8 +33,7 @@ class UserController extends Controller
         $minYear = $currentYear - 17;
 
         $experience = WorkExperience::whereUserId(Auth::user()->id)->first();
-
-        if ($experience->count() > 0) {
+        if ($experience) {
             return redirect()->back();
         }
 
@@ -97,7 +96,7 @@ class UserController extends Controller
             $workExperience->description = $request->description[$counter];
             $workExperience->start_date = $request->start_date_month[$counter] . ' ' . $request->start_date_year[$counter];
             $workExperience->end_date = $request->end_date_month[$counter] . ' ' . $request->end_date_year[$counter];
-            $workExperience->currently_working = $request->current_working ? $request->current_working : null;
+            $workExperience->currently_working = isset($request->current_working[$counter]) ? $request->current_working[$counter] : null;
             $workExperience->save();
             $counter++;
         }
@@ -216,7 +215,7 @@ class UserController extends Controller
             $workExperience->description = $request->description[$counter];
             $workExperience->start_date = $startDate;
             $workExperience->end_date = $endDate;
-            $workExperience->currently_working = $request->current_working[$counter] ? $request->current_working[$counter] : null;
+            $workExperience->currently_working = isset($request->current_working[$counter]) ? $request->current_working[$counter] : null;
             $workExperience->save();
             $counter++;
         }
