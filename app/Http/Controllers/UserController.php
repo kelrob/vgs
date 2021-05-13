@@ -46,7 +46,7 @@ class UserController extends Controller
         $recentCert = Education::whereUserId(Auth::id())->latest()->first();
 
         $experience = WorkExperience::whereUserId(Auth::user()->id)->first();
-        if ($experience) {
+        if (!$experience) {
             return redirect()->to('/build-profile');
         }
 
@@ -58,7 +58,7 @@ class UserController extends Controller
         $user = User::with(['user_profile'])->whereId(Auth::id())->first();
 
         $experience = WorkExperience::whereUserId(Auth::user()->id)->first();
-        if ($experience) {
+        if (!$experience) {
             return redirect()->to('/build-profile');
         }
 
