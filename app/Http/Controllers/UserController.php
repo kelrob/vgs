@@ -45,12 +45,22 @@ class UserController extends Controller
         $user = User::with(['educations', 'user_profile', 'work_experiences'])->whereId(Auth::id())->first();
         $recentCert = Education::whereUserId(Auth::id())->latest()->first();
 
+        $experience = WorkExperience::whereUserId(Auth::user()->id)->first();
+        if ($experience) {
+            return redirect()->to('/build-profile');
+        }
+
         return view('dashboard.my-cv', compact('user', 'recentCert'));
     }
 
     public function myProfile()
     {
         $user = User::with(['user_profile'])->whereId(Auth::id())->first();
+
+        $experience = WorkExperience::whereUserId(Auth::user()->id)->first();
+        if ($experience) {
+            return redirect()->to('/build-profile');
+        }
 
         return view('dashboard.my-profile', compact('user'));
     }
